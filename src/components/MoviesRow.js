@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import MovieCard from "./MovieCard.js";
 
 function MoviesRow (props) {
-    const { movies } = props;
+    const { movies, movieIds } = props;
     return (
         <div className="movies_row columns">
-            {movies.map((movie, index) => {
+            {movieIds.map((movieId, index) => {
                 return (
-                    <MovieCard movie={movie} key={index} />
+                    <MovieCard movie={movies[movieId]} key={index} />
                 )
             })}
        </div> 

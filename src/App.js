@@ -7,7 +7,16 @@ import * as Constants from './constants.js';
 
 function App() {
   const [categories, setCategories] = useState([]);
-  const [savedMovies, setSavedMovies] = useState([]);
+  const [savedMovieIds, setSavedMovieIds] = useState([]);
+  const [movies, setMovies] = useState({});
+
+  const storeMovies = (moviesJson) => {
+    let movies_temp = movies;
+    moviesJson.forEach(item => {
+      movies_temp[item.id] = item;
+    });
+    setMovies(movies_temp);
+  }
 
   useEffect(() => {
     async function getCategories() {
@@ -25,10 +34,16 @@ function App() {
   return (
     <div className="App container">
         <h1>Movie List</h1>
-        <MyList setSavedMovies={setSavedMovies} />
+        <MyList setSavedMovieIds={setSavedMovieIds} />
         {categories.map((category, index) => {
           return (
-            <CategoryRow category={category} key={index} setSavedMovies={setSavedMovies} />
+            <CategoryRow
+              category={category}
+              key={index}
+              storeMovies={storeMovies}
+              setSavedMovieIds={setSavedMovieIds}
+              movies={movies}
+            />
           )
         })}
     </div>

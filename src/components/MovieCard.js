@@ -5,8 +5,12 @@ const IMG_ENDPOINT = "https://image.tmdb.org/t/p/w500";
 const truncate = (input, size) => input.length > size ? `${input.substring(0, size)}...` : input;
 
 function MovieCard (props) {
-    const { movie } = props;
-    return (<div className="card movie-card">
+    const { movie, addMovieToTheList } = props;
+
+    const onCardClick = (evt) => {
+        addMovieToTheList(movie.id)
+    }
+    return (<div className="card movie-card" onClick={onCardClick}>
         <header className="card-header">
             <p className="card-header-title">
                 {truncate(movie.title, 18)}
