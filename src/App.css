@@ -1,9 +1,41 @@
 .movies_row.columns {
   overflow: scroll;
   white-space: nowrap;
+  margin-top: 4px;
+  display: flex;
 }
-
 .movie-card {
   display: table;
-  width: 307px;
+  width: 197px;
+}
+.movie-card .image img {
+  width: 194px;
+}
+.category-row {
+  margin-top: 40px;
+}
+.hidden {
+  display: none;
+}
+.movie-card:hover {
+  cursor: pointer;
+}
+.movie-card:hover .card-image {
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+}
+.on_hover {
+  position: absolute;
+  top: 50%;
+  left: 28%;
+  background-color: #0c7767;
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 4px;
+}
+.movie-card:hover .on_hover.hidden {
+  display: block;
 }

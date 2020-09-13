@@ -18,10 +18,10 @@ function CategoriesRow (props) {
           getMovies();
     }, []);
     return (
-        <>
+        <div className="category-row">
             <h2 className="is-size-3">{category.name}</h2>
             <MoviesRow movies={movies} />
-        </>
+        </div>
     )
 }
 
