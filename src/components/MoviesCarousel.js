@@ -7,8 +7,10 @@ function MoviesCarousel (props) {
     const {carouselImages} = props;
     if (carouselImages.length > 0) {
         return (
-            <div class="columns">
-                <div class="column is-one-third">is-four-fifths</div>
+            <div className="columns carousel_container">
+                <div className="column is-one-third">
+                    <div className="title movies-title">Movies Browser</div>
+                </div>
                 <Carousel
                     autoPlay={true}
                     showArrows={false}
@@ -20,6 +22,7 @@ function MoviesCarousel (props) {
                     stopOnHover={false}
                     interval={3500}
                     height={200}
+                    className="column"
                 >
                     {carouselImages.map((imagePath, index)=> {
                         return (

@@ -1,5 +1,5 @@
 .movies_row.columns {
-  overflow: scroll;
+  overflow: auto;
   white-space: nowrap;
   margin-top: 4px;
   display: flex;
@@ -16,6 +16,10 @@
 }
 .hidden {
   display: none;
+}
+.movie-card {
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
 }
 .movie-card:hover {
   cursor: pointer;
@@ -46,4 +50,15 @@
 }
 .carousel .slide img {
   height: 300px;
+}
+.carousel_container {
+  background: linear-gradient( to right, #0b172b, transparent );
+}
+.carousel_container .title.movies-title {
+  line-height: 300px;
+  color: white;
+  margin-left: 20px;
+}
+.carousel_container.columns .column {
+  padding: 0;
 }
