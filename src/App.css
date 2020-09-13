@@ -1,0 +1,9 @@
+.movies_row.columns {
+  overflow: scroll;
+  white-space: nowrap;
+}
+
+.movie-card {
+  display: table;
+  width: 307px;
+}

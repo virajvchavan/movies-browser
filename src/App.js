@@ -23,7 +23,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App container">
         <h1>Movie List</h1>
         <MyList setSavedMovies={setSavedMovies} />
         {categories.map((category, index) => {

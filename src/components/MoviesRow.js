@@ -1,14 +1,16 @@
 import React, { useEffect } from "react";
-import * as Constants from '../constants.js';
+import MovieCard from "./MovieCard.js";
 
 function MoviesRow (props) {
     const { movies } = props;
     return (
-        <>
-        {movies.map((movie, index) => {
-            return <p key={index}>{movie.title}</p>
-        })}
-       </>
+        <div className="movies_row columns">
+            {movies.map((movie, index) => {
+                return (
+                    <MovieCard movie={movie} key={index} />
+                )
+            })}
+       </div> 
     )
 }
 
