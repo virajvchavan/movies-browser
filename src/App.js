@@ -33,12 +33,12 @@ function App() {
 
   const addMovieToTheList = (movieId) => {
     if (savedMovieIds.indexOf(movieId) === -1) {
-      setSavedMovieIds([...savedMovieIds, movieId]);
+      setSavedMovieIds(savedMovieIds => savedMovieIds.concat(movieId));
     }
   }
 
   const removeMovieFromTheList = (movieId) => {
-    setSavedMovieIds(savedMovieIds.filter((value) => value != movieId));
+    setSavedMovieIds(savedMovieIds => savedMovieIds.filter((value) => value != movieId));
   }
 
   return (
@@ -53,6 +53,7 @@ function App() {
               storeMovies={storeMovies}
               addMovieToTheList={addMovieToTheList}
               movies={movies}
+              savedMovieIds={savedMovieIds}
             />
           )
         })}

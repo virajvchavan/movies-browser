@@ -5,11 +5,18 @@ const IMG_ENDPOINT = "https://image.tmdb.org/t/p/w500";
 const truncate = (input, size) => input.length > size ? `${input.substring(0, size)}...` : input;
 
 function MovieCard (props) {
-    const { movie, addMovieToTheList } = props;
+    const { movie, addMovieToTheList, showDeleteBtn, removeMovieFromTheList} = props;
 
     const onCardClick = (evt) => {
-        addMovieToTheList(movie.id)
+        if (!showDeleteBtn) {
+            addMovieToTheList(movie.id);
+        }
     }
+
+    const onRemoveBtnClick = (evt) => {
+        removeMovieFromTheList(movie.id);
+    }
+
     return (<div className="card movie-card" onClick={onCardClick}>
         <header className="card-header">
             <p className="card-header-title">
@@ -21,9 +28,15 @@ function MovieCard (props) {
                 <img src={IMG_ENDPOINT + movie.poster_path} alt="Placeholder image" />
             </figure>
         </div>
-        <div className="on_hover hidden">
-            Add to list
-        </div>
+        {!showDeleteBtn ? (
+            <div className="addBtn hidden">
+                Add to list
+            </div>
+        ): (
+            <div className="removeBtn hidden" onClick={onRemoveBtnClick}>
+                Remove from list
+            </div>
+        )}
     </div>);
 }
 
