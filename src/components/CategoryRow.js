@@ -3,7 +3,7 @@ import * as Constants from '../constants.js';
 import MoviesRow from './MoviesRow';
 
 function CategoriesRow (props) {
-    const { category, storeMovies, movies } = props;
+    const { category, storeMovies, movies, addMovieToTheList } = props;
     const [movieIds, setMovieIds] = useState([]);
     useEffect(() => {
         async function getMovies() {
@@ -21,7 +21,7 @@ function CategoriesRow (props) {
     return (
         <div className="category-row">
             <h2 className="is-size-3">{category.name}</h2>
-            <MoviesRow movieIds={movieIds} movies={movies} />
+            <MoviesRow movieIds={movieIds} movies={movies} addMovieToTheList={addMovieToTheList} />
         </div>
     )
 }

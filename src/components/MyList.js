@@ -1,7 +1,14 @@
 import React from "react";
+import MoviesRow from './MoviesRow';
 
 function MyList (props) {
-    return <h1>My List</h1>
+    const { movies, savedMovieIds, removeMovieFromTheList } = props;
+    return (
+        <div className="category-row">
+            <h2 className="is-size-3">Saved movies</h2>
+            <MoviesRow movieIds={savedMovieIds} movies={movies} removeMovieFromTheList={removeMovieFromTheList} />
+        </div>
+    )
 }
 
 export default MyList;

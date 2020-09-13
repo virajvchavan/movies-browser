@@ -31,17 +31,27 @@ function App() {
     getCategories();
   }, []);
 
+  const addMovieToTheList = (movieId) => {
+    if (savedMovieIds.indexOf(movieId) === -1) {
+      setSavedMovieIds([...savedMovieIds, movieId]);
+    }
+  }
+
+  const removeMovieFromTheList = (movieId) => {
+    setSavedMovieIds(savedMovieIds.filter((value) => value != movieId));
+  }
+
   return (
     <div className="App container">
         <h1>Movie List</h1>
-        <MyList setSavedMovieIds={setSavedMovieIds} />
+        <MyList movies={movies} savedMovieIds={savedMovieIds} removeMovieFromTheList={removeMovieFromTheList}  />
         {categories.map((category, index) => {
           return (
             <CategoryRow
               category={category}
               key={index}
               storeMovies={storeMovies}
-              setSavedMovieIds={setSavedMovieIds}
+              addMovieToTheList={addMovieToTheList}
               movies={movies}
             />
           )
