@@ -1,6 +1,5 @@
 import React from "react";
-
-const IMG_ENDPOINT = "https://image.tmdb.org/t/p/w500";
+import * as Constants from './../constants.js';
 
 const truncate = (input, size) => input.length > size ? `${input.substring(0, size)}...` : input;
 
@@ -25,7 +24,7 @@ function MovieCard (props) {
         </header>
         <div className="card-image">
             <figure className="image">
-                <img src={IMG_ENDPOINT + movie.poster_path} alt="Placeholder image" />
+                <img src={Constants.IMG_ENDPOINT + movie.poster_path} alt="Placeholder image" />
             </figure>
         </div>
         {!showDeleteBtn ? (

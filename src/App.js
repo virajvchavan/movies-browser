@@ -4,18 +4,28 @@ import './bulma.css';
 import './App.css';
 import CategoryRow from './components/CategoryRow';
 import * as Constants from './constants.js';
+import MoviesCarousel from './components/MoviesCarousel';
 
 function App() {
   const [categories, setCategories] = useState([]);
   const [savedMovieIds, setSavedMovieIds] = useState([]);
   const [movies, setMovies] = useState({});
+  const [carouselImages, setCarouselImages] = useState([]);
 
   const storeMovies = (moviesJson) => {
     let movies_temp = movies;
-    moviesJson.forEach(item => {
+    let image_paths = [];
+    moviesJson.forEach((item, index) => {
       movies_temp[item.id] = item;
+      if (item.backdrop_path && index < 3) {
+        // add 3 images from each category
+        image_paths.push(item.backdrop_path);
+      }
     });
     setMovies(movies_temp);
+    if (carouselImages.length < 15) {
+      setCarouselImages((carouselImages) => carouselImages.concat(image_paths));
+    }
   }
 
   useEffect(() => {
@@ -43,7 +53,7 @@ function App() {
 
   return (
     <div className="App container">
-        <h1>Movie List</h1>
+        <MoviesCarousel carouselImages={carouselImages} />
         <MyList movies={movies} savedMovieIds={savedMovieIds} removeMovieFromTheList={removeMovieFromTheList}  />
         {categories.map((category, index) => {
           return (

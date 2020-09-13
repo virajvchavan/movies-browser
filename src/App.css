@@ -44,3 +44,6 @@
 .movie-card:hover .addBtn.hidden, .movie-card:hover .removeBtn.hidden {
   display: block;
 }
+.carousel .slide img {
+  height: 300px;
+}
