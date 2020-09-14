@@ -53,13 +53,26 @@
   height: 300px;
 }
 .carousel_container {
-  background: linear-gradient( to right, #0b172b, transparent );
+  height: 300px;
+}
+.carousel_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  background: linear-gradient( to right, #001511, transparent );
+  z-index: 100;
 }
 .carousel_container .title.movies-title {
   line-height: 300px;
   color: white;
-  margin-left: 20px;
+  margin-left: 35px;
+  z-index: 2000;
 }
 .carousel_container.columns .column {
   padding: 0;
+}
+.carousel_container .movies-title-column {
+  z-index: 2000;
 }
