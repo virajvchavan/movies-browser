@@ -7,8 +7,7 @@ function MyList (props) {
         <div className="category-row">
             <h2 className="is-size-3">Saved movies</h2>
             {savedMovieIds.length > 0 ? (
-                <MoviesRow movieIds={savedMovieIds} movies={movies} removeMovieFromTheList={removeMovieFromTheList} showDeleteBtn={true} />
-
+                <MoviesRow movieIds={savedMovieIds} movies={movies} removeMovieFromTheList={removeMovieFromTheList} savedMovieIds={savedMovieIds} />
             ): (
                 <p>Nothing here! Scroll to discover more</p>
             )}

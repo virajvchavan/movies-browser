@@ -3,7 +3,7 @@ import MoviesRow from './MoviesRow';
 import { fetchMoviesForACategory } from "../apis/ImdbApiUtils.js";
 
 function CategoriesRow (props) {
-    const { category, storeMovies, movies, addMovieToTheList, savedMovieIds } = props;
+    const { category, storeMovies, movies, addMovieToTheList, savedMovieIds, removeMovieFromTheList } = props;
     const [movieIds, setMovieIds] = useState([]);
     useEffect(() => {
       fetchMoviesForACategory(category.id).then(result => {
@@ -16,7 +16,7 @@ function CategoriesRow (props) {
     return (
         <div className="category-row">
             <h2 className="is-size-3">{category.name}</h2>
-            <MoviesRow movieIds={movieIds} movies={movies} addMovieToTheList={addMovieToTheList} savedMovieIds={savedMovieIds} />
+            <MoviesRow movieIds={movieIds} movies={movies} addMovieToTheList={addMovieToTheList} removeMovieFromTheList={removeMovieFromTheList} savedMovieIds={savedMovieIds} />
         </div>
     )
 }

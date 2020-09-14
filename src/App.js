@@ -13,7 +13,7 @@ function App() {
   const [movies, setMovies] = useState({});
   const [carouselImages, setCarouselImages] = useState([]);
 
-  // fetch categories on first render
+  // fetch categories on first render only
   useEffect(() => {
     fetchCategories().then(result => {
       if (result.length > 0) {
@@ -80,6 +80,7 @@ function App() {
               key={index}
               storeMovies={storeMovies}
               addMovieToTheList={addMovieToTheList}
+              removeMovieFromTheList={removeMovieFromTheList}
               movies={movies}
               savedMovieIds={savedMovieIds}
             />
