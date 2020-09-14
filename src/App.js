@@ -16,7 +16,7 @@ function App() {
     let movies_temp = movies;
     let image_paths = [];
     moviesJson.forEach((item, index) => {
-      movies_temp[item.id] = item;
+      movies_temp[item.id] = {title: item.title, id: item.id, overview: item.overview, poster_path: item.poster_path};
       if (item.backdrop_path && index < 3) {
         // add 3 images from each category
         image_paths.push(item.backdrop_path);
@@ -59,8 +59,8 @@ function App() {
   }, []);
 
   const addMovieToTheList = (movieId) => {
-    if (savedMovieIds.indexOf(movieId) === -1) {
-      setSavedMovieIds(savedMovieIds => savedMovieIds.concat(movieId));
+    if (savedMovieIds.indexOf(`${movieId}`) === -1) {
+      setSavedMovieIds(savedMovieIds => savedMovieIds.concat(`${movieId}`));
     }
   }
 
