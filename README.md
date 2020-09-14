@@ -26,6 +26,8 @@ The MovieDb api is used: https://developers.themoviedb.org/3/
 - Styles can be improved. Right now, all the custom css is dumped into App.css. A better approach can be followed.
 - Categories can be cached in localStorage since they rarely change. This will save a network call.
 - A navigation for categories can be added. Possible on the left side as fixed vertical navbar. On click will scroll to a particular category.
+- Experience on mobile can be made better.
+- Better loaders and related animations for a smoother experience.
 - Add test cases. Possible unit test case scenarious:
     - Ensure various api responses(200, 404, 500) are handled.
     - Ensure each category is rendered for a mocked api response
