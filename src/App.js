@@ -5,6 +5,7 @@ import './App.css';
 import CategoryRow from './components/CategoryRow';
 import * as Constants from './constants.js';
 import MoviesCarousel from './components/MoviesCarousel';
+import { fetchCategories } from './apis/ImdbApiUtils';
 
 function App() {
   const [categories, setCategories] = useState([]);
@@ -12,6 +13,17 @@ function App() {
   const [movies, setMovies] = useState({});
   const [carouselImages, setCarouselImages] = useState([]);
 
+  // fetch categories on first render
+  useEffect(() => {
+    fetchCategories().then(result => {
+      if (result.length > 0) {
+        setCategories(result)
+      }
+    })
+  }, []);
+
+  // `movies` is a key-value object where all movies are stored with movie.id as its key.
+  // Movies are fetched by categoryRows and updated here.
   const storeMovies = (moviesJson) => {
     let movies_temp = movies;
     let image_paths = [];
@@ -28,32 +40,21 @@ function App() {
     }
   }
 
-  useEffect(() => {
-    async function getCategories() {
-      let response = await fetch(Constants.IMDB_ENDPINT + "genre/movie/list?api_key=" + Constants.API_KEY);
-      if (response.status === 200) {
-        let categoriesJson = await response.json();
-        if (categoriesJson.genres && categoriesJson.genres.length > 0) {
-          setCategories(categoriesJson.genres);
-        }
-      }
-    }
-    getCategories();
-  }, []);
-
+  // store savedMovieIds to localStorage onChange
   useEffect(() => {
     if (savedMovieIds.length > 0) {
       window.localStorage.setItem(Constants.SAVED_MOVIES_LS_KEY, JSON.stringify(savedMovieIds));
     }
   }, [savedMovieIds]);
 
+  // setSavedMovieIds from localStorage on first render only.
   useEffect(() => {
     let movieIdsFromLS = window.localStorage.getItem(Constants.SAVED_MOVIES_LS_KEY);
     if (movieIdsFromLS) {
       try {
         setSavedMovieIds(JSON.parse(movieIdsFromLS).map(item => `${item}`));
       } catch (error) {
-        console.log("Error parsing savedMovieIds from localstorage");
+        console.log("Error parsing savedMovieIds from localstorage.");
       }
     }
   }, []);

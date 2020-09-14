@@ -1,22 +1,17 @@
 import React, { useEffect, useState } from "react";
-import * as Constants from '../constants.js';
 import MoviesRow from './MoviesRow';
+import { fetchMoviesForACategory } from "../apis/ImdbApiUtils.js";
 
 function CategoriesRow (props) {
     const { category, storeMovies, movies, addMovieToTheList, savedMovieIds } = props;
     const [movieIds, setMovieIds] = useState([]);
     useEffect(() => {
-        async function getMovies() {
-            let response = await fetch(Constants.IMDB_ENDPINT + "discover/movie?api_key=" + Constants.API_KEY + "&with_genres=" + category.id);
-            if (response.status === 200) {
-              let moviesJson = await response.json();
-              if(moviesJson.results && moviesJson.results.length > 0) {
-                storeMovies(moviesJson.results);
-                setMovieIds(moviesJson.results.map((result) => result.id));
-              }
-            }
-          }
-          getMovies();
+      fetchMoviesForACategory(category.id).then(result => {
+        if(result.length > 0) {
+          storeMovies(result);
+          setMovieIds(result.map((item) => item.id));
+        }
+      });
     }, []);
     return (
         <div className="category-row">
