@@ -28,12 +28,14 @@ function MovieCard (props) {
             </figure>
         </div>
         {!showDeleteBtn ? (
-            <div className="addBtn hidden">
-                Add to list
+            <div className="cardOverlay hidden">
+                {truncate(movie.overview, 150)}
+                <div className="button is-success">Add to list</div>
             </div>
         ): (
-            <div className="removeBtn hidden" onClick={onRemoveBtnClick}>
-                Remove from list
+            <div className="cardOverlay hidden" onClick={onRemoveBtnClick}>
+                {truncate(movie.overview, 150)}
+                <div className="button is-danger">Remove from list</div>
             </div>
         )}
     </div>);

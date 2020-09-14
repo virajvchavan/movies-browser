@@ -30,23 +30,24 @@
   transition: all 0.2s;
   -webkit-transition: all 0.2s;
 }
-.addBtn, .removeBtn {
+.cardOverlay {
   position: absolute;
-  top: 50%;
-  left: 28%;
-  background-color: #0c7767;
+  top: 48px;
+  left: 0;
+  width: 194px;
+  height: 291px;
+  background-color:#00000094;
   color: white;
   font-weight: bold;
   padding: 5px;
   border-radius: 4px;
+  white-space: pre-line;
 }
-.removeBtn {
-  background-color: red;
-  color: white;
-  left: 14%;
+.cardOverlay .button {
+  align-self: flex-end;
 }
-.movie-card:hover .addBtn.hidden, .movie-card:hover .removeBtn.hidden {
-  display: block;
+.movie-card:hover .cardOverlay.hidden {
+  display: grid;
 }
 .carousel .slide img {
   height: 300px;
