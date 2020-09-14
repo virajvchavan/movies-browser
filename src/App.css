@@ -90,3 +90,9 @@
 .movie_rating {
   color: #4270da;
 }
+
+@media screen and (max-width: 770px) {
+  .movies-title-column {
+    display: none;
+  }
+}
