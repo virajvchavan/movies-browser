@@ -41,6 +41,23 @@ function App() {
     getCategories();
   }, []);
 
+  useEffect(() => {
+    if (savedMovieIds.length > 0) {
+      window.localStorage.setItem(Constants.SAVED_MOVIES_LS_KEY, JSON.stringify(savedMovieIds));
+    }
+  }, [savedMovieIds]);
+
+  useEffect(() => {
+    let movieIdsFromLS = window.localStorage.getItem(Constants.SAVED_MOVIES_LS_KEY);
+    if (movieIdsFromLS) {
+      try {
+        setSavedMovieIds(JSON.parse(movieIdsFromLS).map(item => `${item}`));
+      } catch (error) {
+        console.log("Error parsing savedMovieIds from localstorage");
+      }
+    }
+  }, []);
+
   const addMovieToTheList = (movieId) => {
     if (savedMovieIds.indexOf(movieId) === -1) {
       setSavedMovieIds(savedMovieIds => savedMovieIds.concat(movieId));
