@@ -2,7 +2,7 @@ import React from "react";
 import MovieCard from "./MovieCard.js";
 
 function MoviesRow (props) {
-    const { movies, movieIds, addMovieToTheList, removeMovieFromTheList, savedMovieIds } = props;
+    const { movies, movieIds, addMovieToTheList, removeMovieFromTheList, savedMovieIds, showFetchModeBtn, fetchMoreMovies } = props;
     
     return (
         <div className="movies_row columns">
@@ -13,6 +13,13 @@ function MoviesRow (props) {
                     <MovieCard movie={movies[movieId]} key={index} addMovieToTheList={addMovieToTheList} showDeleteBtn={showDeleteBtn} removeMovieFromTheList={removeMovieFromTheList} />
                 ) : null;
             })}
+            {Object.keys(movieIds).length > 1 && showFetchModeBtn ? (
+                <div className="card">
+                    <div className="fetchMoreCard">
+                        <div className="button is-success" onClick={fetchMoreMovies}>Fetch more</div>
+                    </div>
+                </div>
+            ): null}
        </div> 
     )
 }

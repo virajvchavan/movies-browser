@@ -14,6 +14,7 @@ function App() {
   const [carouselImages, setCarouselImages] = useState([]);
 
   // fetch categories on first render only
+  // possible improvement: cache these in localStorage as they rarely change
   useEffect(() => {
     fetchCategories().then(result => {
       if (result.length > 0) {
@@ -27,14 +28,16 @@ function App() {
   const storeMovies = (moviesJson) => {
     let movies_temp = movies;
     let image_paths = [];
+  
     moviesJson.forEach((item, index) => {
       movies_temp[item.id] = {title: item.title, id: item.id, overview: item.overview, poster_path: item.poster_path};
       if (item.backdrop_path && index < 3) {
-        // add 3 images from each category
+        // add top 3 images from each category
         image_paths.push(item.backdrop_path);
       }
     });
     setMovies(movies_temp);
+  
     if (carouselImages.length < 15) {
       setCarouselImages((carouselImages) => carouselImages.concat(image_paths));
     }

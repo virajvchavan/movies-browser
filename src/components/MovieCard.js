@@ -25,6 +25,7 @@ function MovieCard (props) {
                 <img src={Constants.IMG_ENDPOINT + movie.poster_path} alt="Placeholder image" />
             </figure>
         </div>
+
         {!showDeleteBtn ? (
             <div className="cardOverlay hidden" onClick={onCardClick}>
                 {truncateText(movie.overview, 160)}

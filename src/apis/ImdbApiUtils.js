@@ -20,8 +20,8 @@ export const fetchCategories = async () => {
     }
 }
 
-export const fetchMoviesForACategory = async (categoryId) => {
-    let response = await callImdbApi(`discover/movie?with_genres=${categoryId}&`);
+export const fetchMoviesForACategory = async (categoryId, apiPage) => {
+    let response = await callImdbApi(`discover/movie?with_genres=${categoryId}&page=${apiPage}&`);
     if (response && response.results) {
         return response.results;
     } else {

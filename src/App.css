@@ -76,3 +76,14 @@
 .carousel_container .movies-title-column {
   z-index: 2000;
 }
+.fetchMoreCard {
+  position: absolute;
+    top: 152px;
+    left: 29px;
+    width: 150px;
+    height: 61px;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 4px;
+}
