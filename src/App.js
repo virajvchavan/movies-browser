@@ -30,7 +30,7 @@ function App() {
     let image_paths = [];
   
     moviesJson.forEach((item, index) => {
-      movies_temp[item.id] = {title: item.title, id: item.id, overview: item.overview, poster_path: item.poster_path};
+      movies_temp[item.id] = {title: item.title, id: item.id, overview: item.overview, poster_path: item.poster_path, vote_average: item.vote_average};
       if (item.backdrop_path && index < 3) {
         // add top 3 images from each category
         image_paths.push(item.backdrop_path);

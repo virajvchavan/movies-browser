@@ -17,7 +17,7 @@ function MovieCard (props) {
     return (<div className="card movie-card">
         <header className="card-header">
             <p className="card-header-title">
-                {truncateText(movie.title, 18)}
+                {truncateText(movie.title, 15)} <span className="movie_rating">&nbsp;({movie.vote_average || ""}</span>)
             </p>
         </header>
         <div className="card-image">
