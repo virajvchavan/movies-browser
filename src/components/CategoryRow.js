@@ -7,6 +7,7 @@ function CategoriesRow (props) {
     const [movieIds, setMovieIds] = useState([]);
     const [apiPage, setApiPage] = useState(1);
 
+    // fetch movies for each new apiPage
     useEffect(() => {
       fetchMoviesForACategory(category.id, apiPage).then(result => {
         if(result.length > 0) {
@@ -20,7 +21,7 @@ function CategoriesRow (props) {
       setApiPage(apiPage => apiPage + 1);
     }
 
-    return (
+    return Object.keys(movies).length > 1 ? (
         <div className="category-row">
             <h2 className="is-size-3">{category.name}</h2>
             <MoviesRow
@@ -33,7 +34,7 @@ function CategoriesRow (props) {
               fetchMoreMovies={fetchMoreMovies}
             />
         </div>
-    )
+    ) : null;
 }
 
 export default CategoriesRow;

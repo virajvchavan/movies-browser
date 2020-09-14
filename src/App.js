@@ -89,6 +89,11 @@ function App() {
             />
           )
         })}
+
+        {Object.keys(movies).length < 1 ?(
+          <div className="title">Loading...</div>
+        ): null}
+
     </div>
   );
 }
