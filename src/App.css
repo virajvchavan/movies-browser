@@ -13,6 +13,8 @@
 }
 .category-row {
   margin-top: 40px;
+  width: 1200px;
+  margin: 0 auto;
 }
 .hidden {
   display: none;
@@ -91,7 +93,9 @@
 .movie_rating {
   color: #4270da;
 }
-
+.App.container{
+  padding: 0;
+}
 @media screen and (max-width: 770px) {
   .movies-title-column {
     display: none;

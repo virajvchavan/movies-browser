@@ -73,7 +73,7 @@ function App() {
   }
 
   return (
-    <div className="App container">
+    <div className="App container is-fluid">
         <MoviesCarousel carouselImages={carouselImages} />
         <MyList movies={movies} savedMovieIds={savedMovieIds} removeMovieFromTheList={removeMovieFromTheList}  />
         {categories.map((category, index) => {
