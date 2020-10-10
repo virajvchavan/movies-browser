@@ -58,11 +58,11 @@
 .carousel_overlay {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 32%;
+  width: 68%;
   height: 300px;
-  background: linear-gradient( to right, #001511, transparent );
   z-index: 100;
+  background: linear-gradient( to right, black, transparent );
 }
 .carousel_container .title.movies-title {
   line-height: 300px;
@@ -72,6 +72,7 @@
 }
 .carousel_container.columns .column {
   padding: 0;
+  background-color: black;
 }
 .carousel_container .movies-title-column {
   z-index: 2000;
@@ -95,4 +96,8 @@
   .movies-title-column {
     display: none;
   }
+  .carousel_overlay {
+    left: 0;
+  }
+
 }
