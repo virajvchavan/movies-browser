@@ -104,11 +104,23 @@
 }
 
 @media screen and (max-width: 770px) {
-  .movies-title-column {
+  .carousel_overlay {
+    left: 300px;
+  }
+  .carousel-root.column{
     display: none;
   }
+  .carousel_container .title.movies-title {
+  line-height: 200px;
+  }
   .carousel_overlay {
-    left: 0;
+    height: 200px;
+  }
+  .carousel .slide img {
+  height: 200px;
+  }
+  .carousel_container {
+  height: 200px;
   }
 
 }
