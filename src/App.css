@@ -96,6 +96,12 @@
 .App.container{
   padding: 0;
 }
+@media screen and (max-width: 1200px) {
+  .App.container{
+    min-width: 1200px;
+  }
+}
+
 @media screen and (max-width: 770px) {
   .movies-title-column {
     display: none;
