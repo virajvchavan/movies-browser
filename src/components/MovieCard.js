@@ -22,7 +22,7 @@ function MovieCard (props) {
         </header>
         <div className="card-image">
             <figure className="image">
-                <img src={Constants.IMG_ENDPOINT + movie.poster_path} alt="Placeholder image" />
+                <img src={Constants.IMG_ENDPOINT + movie.poster_path} alt="Placeholder" />
             </figure>
         </div>
 
