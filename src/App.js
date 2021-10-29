@@ -69,7 +69,7 @@ function App() {
   }
 
   const removeMovieFromTheList = (movieId) => {
-    setSavedMovieIds(savedMovieIds => savedMovieIds.filter((value) => value != movieId));
+    setSavedMovieIds(savedMovieIds => savedMovieIds.filter((value) => value !== movieId));
   }
 
   return (

@@ -28,7 +28,7 @@ function MoviesCarousel (props) {
                     {carouselImages.map((imagePath, index)=> {
                         return (
                             <div key={index}>
-                                <img src={IMG_ENDPOINT + imagePath} />
+                                <img src={IMG_ENDPOINT + imagePath} alt=""/>
                             </div>
                         )
                     })}

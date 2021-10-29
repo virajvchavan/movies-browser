@@ -4,10 +4,6 @@
   margin-top: 4px;
   display: flex;
 }
-.movie-card {
-  display: table;
-  width: 197px;
-}
 .movie-card .image img {
   width: 194px;
 }
@@ -23,6 +19,9 @@
 .movie-card {
   transition: all 0.2s;
   -webkit-transition: all 0.2s;
+}
+.card.movie-card {
+  min-width: 200px;
 }
 .movie-card:hover .card-image {
   filter: blur(3px);
